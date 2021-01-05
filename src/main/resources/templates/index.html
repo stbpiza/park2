@@ -6,6 +6,7 @@
     <title>index</title>
 </head>
 <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <header><div>어서오세요 사무실 주차장 입니다</div></header>
 <div class="container">
     <nav>
@@ -22,6 +23,7 @@
         </div>
     </nav>
     <section>
+        <!--
         <div class="top"></div>
         <form class="form1" action="/in" method="post">
             <input class="text" type="text" name="car_num" placeholder="차번호" required pattern="(\d?)(\d{2})([가-힣])(\d{4})">
@@ -40,9 +42,18 @@
             <input class="button" type="submit" value="관리자모드">
             <span></span>
         </form>
+        -->
+        <form>
+            <div class="form-group">
+                <lable for="car_num">Car_num</lable>
+                <input type="text" class="form-control" placeholder="차번호" id="car_num">
+            </div>
+        </form>
+        <button id="incar" class="button1">입차</button>
     </section>
 
 </div>
+<script th:src="@{/static/js/gate.js}"></script>
 <footer>
 	<span class="footer1">
 		<span class="footer2">

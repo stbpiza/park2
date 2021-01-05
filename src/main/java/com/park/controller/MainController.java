@@ -11,4 +11,14 @@ public class MainController {
     public String index() {
         return "index";
     }
+
+    @RequestMapping("/welcome")
+    public String welcome() {
+        return "welcome";
+    }
+
+    @RequestMapping("/bye")
+    public String bye() {
+        return "bye";
+    }
 }
