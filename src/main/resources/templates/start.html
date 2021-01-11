@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/static/css/index.css}" rel="stylesheet" type="text/css">
+    <title>start</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--
+<span th:if="${session.timePrice == null}" >
+    <button id="start" class="button1">시작하기</button>
+</span>
+<span th:unless="">
+    게이트로 이동합니다.
+</span>
+-->
+<button id="start" class="button1">시작하기</button>
+<script th:src="@{/static/js/start.js}"></script>
+</body>
+
+<script th:inline="javascript">
+    /* <![CDATA[ */
+    var startCheck = /*[[${session.timePrice}]]*/;
+    /* ]]> */
+    window.onload = function (){
+        if (startCheck !== null){
+            gogate();
+        }
+    }
+    function gogate(){
+
+        location.replace("/gate");
+        alert("이미 서비스를 시작했습니다.");
+    }
+</script>
+
+</html>

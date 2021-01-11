@@ -9,7 +9,12 @@ public class MainController {
 
     @RequestMapping("/")
     public String index() {
-        return "index";
+        return "start";
+    }
+
+    @RequestMapping("/gate")
+    public String gate() {
+        return "gate";
     }
 
     @RequestMapping("/welcome")
@@ -21,4 +26,7 @@ public class MainController {
     public String bye() {
         return "bye";
     }
+
+    @RequestMapping("/admin")
+    public String admin() { return "admin"; }
 }

@@ -1,28 +1,23 @@
 let index = {
     init: function(){
-        $("#incar").on("click", ()=>{
-            this.save();
+        $("#start").on("click", ()=>{
+            this.start();
         });
     },
-    save: function (){
-        let data = {
-            car_num: $("#car_num").val()
-        }
+    start: function (){
+        let data = { dum : 1 }
 
         $.ajax({
             type: "POST",
-            url: "/api/in",
+            url: "/api/start",
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             dataType: "json"
         }).done(function(resp){
             //console.log(resp);
-            if(resp.data===1) {
-                alert("입차되었습니다.");
-                location.href = "/welcome";
-            }
-            else if(resp.data===-2){
-                alert("이미 입차된 차량입니다!");
+            if(resp===1) {
+                alert("서비스를 시작합니다.");
+                location.href = "/gate";
             }
             else{
                 alert("에러가 발생하였습니다. 관리자를 호출해주세요");
@@ -34,3 +29,4 @@ let index = {
 }
 
 index.init();
+

@@ -14,10 +14,10 @@
             주차장 이용안내</h3><br>
         <div class="navtext">
             시간당 요금<br>
-            원<br>
+            <span th:text="${session.timePrice}"></span>원<br>
             정기 요금(30일)<br>
-            원<br>
-            남은 잔돈 : <br><br>
+            <span th:text="${session.regPrice}"></span>원<br>
+            남은 잔돈 : <br><span th:text="${session.change}"></span><br>
             1시간 미만도 1시간 요금 책정<br>
             정기 가입은 출차시 가능
         </div>
@@ -45,11 +45,12 @@
         -->
         <form>
             <div class="form-group">
-                <lable for="car_num">Car_num</lable>
+                <lable for="car_num">차번호</lable>
                 <input type="text" class="form-control" placeholder="차번호" id="car_num">
             </div>
         </form>
         <button id="incar" class="button1">입차</button>
+        <button id="outcar" class="button1">출차</button>
     </section>
 
 </div>
@@ -69,4 +70,19 @@
 	</span>
 </footer>
 </body>
+<script th:inline="javascript">
+    /* <![CDATA[ */
+    var startCheck = /*[[${session.timePrice}]]*/;
+    /* ]]> */
+    window.onload = function (){
+        if (startCheck == null){
+            gostart();
+        }
+    }
+    function gostart(){
+
+        location.replace("/");
+        alert("서비스를 정상적으로 시작해주세요.");
+    }
+</script>
 </html>
