@@ -30,11 +30,11 @@ public class GateController {
     }
 
     @PostMapping("/api/out")
-    public int outcar(@RequestBody Gate gate) {
+    public ResponseDto<Integer> outcar(@RequestBody Gate gate) {
         System.out.println("/out");
         System.out.println(gate.toString());
 
-
-        return 1;
+        int result = gateService.outcarS(gate);
+        return new ResponseDto<Integer>(HttpStatus.OK.value(),result);
     }
 }

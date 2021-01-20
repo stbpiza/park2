@@ -7,6 +7,7 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.sql.Timestamp;
 
 @Entity
@@ -25,5 +26,8 @@ public class Gate {
     private InOutType in_out;
 
     @CreationTimestamp
-    private Timestamp time;
+    private Timestamp in_time;
+
+    @Column
+    private Timestamp out_time;
 }
